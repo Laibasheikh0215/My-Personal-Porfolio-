@@ -1,5 +1,5 @@
 // @ts-ignore - Ignore SplitText type declaration issue
-import SplitText from 'gsap-trial/SplitText';
+import SplitText from 'gsap/SplitText';
 import gsap from "gsap";
 import { smoother } from "../Navbar";
 
