@@ -1,17 +1,13 @@
 let endListener = false;
 
 clickElement.addEventListener("click", () => {
-  if (endListener) {
-    endListener = false;
-  } else {
-    endListener = true;
-  }
+  endListener = !endListener; // Simpler toggle
 });
 
 video.addEventListener("ended", () => {
-  if (endListener) return console.log("listener ended");
-
-  //endListener =false then below code runs
-
+  if (endListener) {
+    console.log("listener ended");
+    return;
+  }
   console.log("Video has ended");
 });

@@ -6,7 +6,9 @@ import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-export let smoother: ScrollSmoother;
+
+// Fixed: Nullable type with null initial value
+export let smoother: ScrollSmoother | null = null;
 
 const Navbar = () => {
   useEffect(() => {
@@ -20,8 +22,10 @@ const Navbar = () => {
       ignoreMobileResize: true,
     });
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
+    if (smoother) {
+      smoother.scrollTop(0);
+      smoother.paused(true);
+    }
 
     let links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
@@ -31,14 +35,18 @@ const Navbar = () => {
           e.preventDefault();
           let elem = e.currentTarget as HTMLAnchorElement;
           let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
+          if (smoother && section) {
+            smoother.scrollTo(section, true, "top top");
+          }
         }
       });
     });
+    
     window.addEventListener("resize", () => {
       ScrollSmoother.refresh(true);
     });
   }, []);
+  
   return (
     <>
       <div className="header">

@@ -1,11 +1,16 @@
-// @ts-ignore
+// @ts-ignore - Ignore SplitText type declaration issue
 import SplitText from 'gsap-trial/SplitText';
 import gsap from "gsap";
 import { smoother } from "../Navbar";
 
 export function initialFX() {
   document.body.style.overflowY = "auto";
-  smoother.paused(false);
+  
+  // Fixed: Check if smoother exists before using
+  if (smoother) {
+    smoother.paused(false);
+  }
+  
   document.getElementsByTagName("main")[0].classList.add("main-active");
   gsap.to("body", {
     backgroundColor: "#0b080c",
@@ -20,6 +25,7 @@ export function initialFX() {
       linesClass: "split-line",
     }
   );
+  
   gsap.fromTo(
     landingText.chars,
     { opacity: 0, y: 80, filter: "blur(5px)" },
@@ -62,6 +68,7 @@ export function initialFX() {
       delay: 0.8,
     }
   );
+  
   gsap.fromTo(
     [".header", ".icons-section", ".nav-fade"],
     { opacity: 0 },
@@ -99,39 +106,39 @@ function LoopText(Text1: SplitText, Text2: SplitText) {
     },
     0
   )
-    .fromTo(
-      Text1.chars,
-      { y: 80 },
-      {
-        duration: 1.2,
-        ease: "power3.inOut",
-        y: 0,
-        stagger: 0.1,
-        delay: delay2,
-      },
-      1
-    )
-    .fromTo(
-      Text1.chars,
-      { y: 0 },
-      {
-        y: -80,
-        duration: 1.2,
-        ease: "power3.inOut",
-        stagger: 0.1,
-        delay: delay,
-      },
-      0
-    )
-    .to(
-      Text2.chars,
-      {
-        y: -80,
-        duration: 1.2,
-        ease: "power3.inOut",
-        stagger: 0.1,
-        delay: delay2,
-      },
-      1
-    );
+  .fromTo(
+    Text1.chars,
+    { y: 80 },
+    {
+      duration: 1.2,
+      ease: "power3.inOut",
+      y: 0,
+      stagger: 0.1,
+      delay: delay2,
+    },
+    1
+  )
+  .fromTo(
+    Text1.chars,
+    { y: 0 },
+    {
+      y: -80,
+      duration: 1.2,
+      ease: "power3.inOut",
+      stagger: 0.1,
+      delay: delay,
+    },
+    0
+  )
+  .to(
+    Text2.chars,
+    {
+      y: -80,
+      duration: 1.2,
+      ease: "power3.inOut",
+      stagger: 0.1,
+      delay: delay2,
+    },
+    1
+  );
 }
