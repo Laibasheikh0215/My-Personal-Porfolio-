@@ -13,21 +13,21 @@ const projects = [
     title: "Restaurant Website",
     author: "Laiba Sheikh",
     tools: " React.js, Node.js, Express, PostgreSQL, Socketio, JWT, Firebase, Nodemailer",
-    image: "/images/restaurant-img.png",
+    image: "/images/restaurant img.png",
   },
   {
     id: 2,
     title: "Online Book Exchange Community  System",
     author: "Laiba Sheikh",
     tools: " HTML, CSS, JavaScript, jQuery, PHP, MySQL",
-    image: "/images/bookWeb-img.png",
+    image: "/images/bookWeb img.png",
   },
   {
     id: 3,
     title: "Weather Update Dashboard",
     author: "Laiba Sheikh",
     tools: "React, Node.js, Express, MongoDB, Tailwind CSS, JWT, Nodemailer, Leaflet",
-    image: "/images/weather-img.png",
+    image: "/images/weather img.png",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const projects = [
     title: "Recipe Sharing Plateform",
     author: "Laiba Sheikh",
     tools: "HTML, CSS, JavaScript, Node.js, Express, Firebase, JWT",
-    image: "/images/recipeimg.png",
+    image: "/images/Recipeimg.png",
   },
 ];
 
