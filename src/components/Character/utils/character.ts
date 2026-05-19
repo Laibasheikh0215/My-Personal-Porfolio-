@@ -1,7 +1,8 @@
 import * as THREE from "three";
-import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib";
+import { DRACOLoader, GLTFLoader, GLTF } from "three-stdlib";
 import { setCharTimeline, setAllTimeline } from "../../utils/GsapScroll";
 import { decryptFile } from "./decrypt";
+
 
 const setCharacter = (
   renderer: THREE.WebGLRenderer,
@@ -10,7 +11,9 @@ const setCharacter = (
 ) => {
   const loader = new GLTFLoader();
   const dracoLoader = new DRACOLoader();
-  dracoLoader.setDecoderPath("/draco/");
+  
+  // Use Google's official CDN - No local files needed!
+  dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.4.3/');
   loader.setDRACOLoader(dracoLoader);
 
   const loadCharacter = () => {
